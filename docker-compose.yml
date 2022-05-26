@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  backend:
+    build: /backend
+    container_name: 'pm-backend'
+    ports:
+      - 8080:8080
+  postgres:
+    image: 'postgres:14.3'
+    container_name: 'pm-postgres'
+    environment:
+      - 'POSTGRES_USER=pmdbuser'
+      - 'POSTGRES_PASSWORD=pmdbpassword'
+      - 'POSTGRES_DB=pmaster'
