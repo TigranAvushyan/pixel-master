@@ -8,3 +8,4 @@
 *.ipr
 
 app.log
+app.log.*

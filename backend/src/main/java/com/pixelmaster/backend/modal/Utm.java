@@ -4,11 +4,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "utm")
@@ -16,7 +14,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class UtmEntity {
+public class Utm {
   @Id
   @GeneratedValue
   private Long id;
@@ -33,12 +31,11 @@ public class UtmEntity {
   @Column
   private Date date;
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-    UtmEntity utmEntity = (UtmEntity) o;
-    return id != null && Objects.equals(id, utmEntity.id);
+  public Utm(String ip, String site, String os, Date date) {
+    this.ip = ip;
+    this.site = site;
+    this.os = os;
+    this.date = date;
   }
 
   @Override
