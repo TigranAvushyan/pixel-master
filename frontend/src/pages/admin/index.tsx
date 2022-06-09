@@ -1,5 +1,5 @@
-import type { NextPage } from "next";
 import { CategoryScale, Chart, Legend, LinearScale, LineElement, PointElement, Title, Tooltip } from "chart.js";
+import type { NextPage } from "next";
 import { Line } from "react-chartjs-2";
 
 
@@ -56,7 +56,7 @@ const Admin: NextPage = () => {
 
   return (
       <div>
-        <Line data={ data } options={options}/>
+        <Line data={ data } options={ options } />
       </div>
   );
 };
