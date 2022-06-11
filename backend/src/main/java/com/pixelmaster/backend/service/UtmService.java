@@ -3,9 +3,12 @@ package com.pixelmaster.backend.service;
 import com.pixelmaster.backend.modal.Utm;
 import com.pixelmaster.backend.repository.UtmRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -20,6 +23,9 @@ public class UtmService {
     return utm;
   }
 
+  public Page<Utm> getAllUtm(Pageable pageable) {
+    return utmRepository.findAll(pageable);
+  }
 
 }
 

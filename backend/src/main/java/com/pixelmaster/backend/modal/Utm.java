@@ -9,14 +9,14 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "utm")
+@Table(name = "utm", indexes = {@Index(name = "date_index", columnList = "date")})
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
 public class Utm {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @Column

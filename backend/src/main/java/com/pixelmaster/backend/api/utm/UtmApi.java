@@ -5,10 +5,13 @@ import com.pixelmaster.backend.modal.Utm;
 import com.pixelmaster.backend.service.UtmService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.*;
+
+
 
 @RestController
 @RequestMapping("utm")
@@ -21,5 +24,12 @@ public class UtmApi {
   @PostMapping
   public Utm addUtm(@RequestBody UtmRequestDTO requestDTO) {
     return utmService.saveUtm(requestDTO.ip, requestDTO.os, requestDTO.site);
+  }
+
+
+
+  @GetMapping
+  public Page<Utm> getAllUtm(@PageableDefault(sort = {"date"}, direction = Sort.Direction.DESC) Pageable pageable) {
+    return utmService.getAllUtm(pageable);
   }
 }
