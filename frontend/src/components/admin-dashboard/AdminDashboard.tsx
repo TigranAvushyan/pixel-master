@@ -1,17 +1,21 @@
 import UtmCountByMonth from "@/components/admin-dashboard/admin-dashboar-chats/UtmCountByMonth";
+import UtmTable from "@/components/admin-dashboard/admin-dashboard-tables/UtmTable";
+
 import React, { FC } from "react";
 
 
 const AdminDashboard: FC = () => {
   return (
-      <div className={'admin-dashboard-container'}>
+      <div className={ "admin-dashboard-container" }>
 
         <div className="charts">
           <UtmCountByMonth />
         </div>
 
-        <div className="tables">
+        <hr />
 
+        <div className="tables">
+          <UtmTable />
         </div>
       </div>
   );

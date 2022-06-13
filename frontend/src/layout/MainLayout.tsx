@@ -24,11 +24,11 @@ const MainLayout: FC<MainLayoutProps> = ({ children, title = "IKSLine" }) => (
 
       <AppFooter />
 
-      <script  type="text/javascript"  src="../../styles/js/jquery/jquery-2.2.4.min.js" />
-      <script  type="text/javascript"  src="../../styles/js/bootstrap/popper.min.js" />
-      <script  type="text/javascript"  src="../../styles/js/bootstrap/bootstrap.min.js" />
-      <script  type="text/javascript"  src="../../styles/js/plugins/plugins.js" />
-      <script  type="text/javascript"  src="../../styles/js/active.js" />
+      <script type="text/javascript" src="../../styles/js/jquery/jquery-2.2.4.min.js" />
+      <script type="text/javascript" src="../../styles/js/bootstrap/popper.min.js" />
+      <script type="text/javascript" src="../../styles/js/bootstrap/bootstrap.min.js" />
+      <script type="text/javascript" src="../../styles/js/plugins/plugins.js" />
+      <script type="text/javascript" src="../../styles/js/active.js" />
     </>
 );
 
