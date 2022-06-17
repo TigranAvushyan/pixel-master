@@ -1,6 +1,6 @@
 (function ($) {
     'use strict';
-
+    console.log('Jquery test');
     var browserWindow = $(window);
 
     // :: 1.0 Preloader Active Code

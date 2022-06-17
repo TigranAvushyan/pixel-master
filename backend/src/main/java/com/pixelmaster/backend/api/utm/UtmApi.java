@@ -12,7 +12,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 
-
 @RestController
 @RequestMapping("utm")
 @RequiredArgsConstructor
@@ -25,7 +24,6 @@ public class UtmApi {
   public Utm addUtm(@RequestBody UtmRequestDTO requestDTO) {
     return utmService.saveUtm(requestDTO.ip, requestDTO.os, requestDTO.site);
   }
-
 
 
   @GetMapping

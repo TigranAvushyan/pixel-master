@@ -8,7 +8,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -18,7 +17,7 @@ public class UtmService {
 
 
   public Utm saveUtm(String ip, String os, String site) {
-    Utm utm = new Utm(ip, site, os,new Date());
+    Utm utm = new Utm(ip, site, os, new Date());
     utmRepository.save(utm);
     return utm;
   }

@@ -9,4 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UtmRepository extends CrudRepository<Utm, Long> {
   Page<Utm> findAll(Pageable pageable);
+
+//  Page<UtmCountDTO> countSiteByeMonth();
+
 }
