@@ -1,5 +1,7 @@
 
 export const urls = {
   // utm
-  utm: () => "/utm"
+  utm: () => "/utm",
+
+  login: () => "/login"
 }
