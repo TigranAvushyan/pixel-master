@@ -1,25 +1,37 @@
+import Pagination from "@/components/pagination/Pagination";
 import http from "@/lib/server/http";
 import { urls } from "@/lib/server/urls";
+import { Page } from "@/lib/types/Page";
 import classNames from "classnames";
 import React, { FC, useEffect, useState } from "react";
 
+type UtmData = {
+  id: number,
+  site: string,
+  os: string,
+  ip: string,
+  date: string
+}
 
 const UtmTable: FC = () => {
 
-  const [utm, setUtm] = useState(null);
+  const [utm, setUtm] = useState<Page<UtmData> | null>(null);
   const [page, setPage] = useState(0);
 
 
 
   useEffect(() => {
     (async () => {
-      const httpRes = await http.get(urls.utm(), { params: { page } });
+      const httpRes = await http.get<Page<UtmData>>(urls.utm(), { params: { page } });
       const utm = httpRes.data;
       setUtm(utm);
       console.log(utm);
     })();
   }, [page]);
 
+  return <Pagination activeItem={ page } onClickItem={setPage} itemNumbers={60} />
+
+  if (!utm) return null;
 
   return (
       <div>
@@ -35,7 +47,7 @@ const UtmTable: FC = () => {
           </thead>
           <tbody>
           {
-            utm?.content?.map(i => (
+            utm.content.map(i => (
                 <tr>
                   <th scope="row">{ i.id }</th>
                   <td>{ i.ip }</td>
@@ -47,15 +59,9 @@ const UtmTable: FC = () => {
           }
           </tbody>
         </table>
-        <div className="align-content-center flex-wrap d-flex justify-content-center my-3 ">
-          <ul className="pagination   flex-wrap d-flex">
-            { Array.from({ length: utm?.totalPages || 0 }, (_, i) => (
-                <li
-                    onClick={ () => setPage(i) }
-                    className={ classNames("page-item", i === utm.number ? "active" : "") }><span
-                    className="page-link ">{ i + 1 }</span></li>)) }
-          </ul>
-        </div>
+        
+        <Pagination activeItem={ page } onClickItem={setPage} itemNumbers={10} />
+
       </div>
   );
 };
